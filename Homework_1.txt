@@ -18,3 +18,7 @@ nano file (leave comment only from master)
 git add file 
 git commit -m 'conflict is fixed'
 git merge new_branch
+
+git branch new_branch
+git push origin --new_branch:cool_branch
+git push origin --delete cool_branch
