@@ -1,7 +1,0 @@
-echo 'Hello World' > textfile
-git add textfile
-git reset HEAD textfile
-git checkout textfile
-git rm --cached textfile
-
-git tag -a v1.0 -m 'version 1.0'
