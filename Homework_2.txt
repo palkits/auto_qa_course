@@ -1,0 +1,46 @@
+1. Move file to commit and back
+
+touch file1
+git add file1
+git commit -m 'Adding file1'
+git reset --soft HEAD~1
+git restore --staged file1
+-----------------------------
+
+2.Create situation when your changes in working directory going to be
+overwritten by update. Try to avoid problem with 'git stach'
+
+touch test_file
+git add test_file
+echo "123" > test_file
+git commit -am "test_file add"
+echo "321" > test_file
+git checkout master
+git stash
+git checkout master
+-----------------------------
+3.Create annotated tag. Push it, remove it
+
+git tag -a v.1.0.0.0 -m "New tag"
+git tag -l
+git push local v1.0.0.0
+git push local --delete v1.0.0.0
+
+-----------------------------
+4. Create branch from initial commit of master branch
+
+touch file1
+git add file1
+git commit -m 'New file to new branch'
+git log --oneline
+git checkout -b New_branch 13675c1
+----------------------------
+
+5. Remove file from git repo only (leave on file system)
+touch file2
+git add file2
+git commit -m 'Adding file2'
+git push
+git rm --cached file2
+git commit -m 'deleting file2'
+git push
